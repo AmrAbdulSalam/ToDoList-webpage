@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script>
+        let count = 1;
+        let addToList = () =>{
+            //adding content
+            document.querySelector('.cont').insertAdjacentHTML('afterbegin','<div class = "nam" id="nam'+ count +'"><span id = "span'+ count +'">' + document.getElementById('inputform').value+'</span></div>');
+            //adding buttons
+            document.querySelector('.butoo').insertAdjacentHTML('afterbegin','<div class="but"id="but'+ count +'"><button onclick="deleteFun('+count+')">Delete</button>  <button onclick="editFun('+count+')">Edit</button> </div>');
+            count++;
+            document.getElementById('inputform').value = ''
+        }
+        function deleteFun(x){
+            document.getElementById('nam'+x).remove();
+            document.getElementById('but'+x).remove();
+        }
+        function editFun(x){
+            document.getElementById('inputform').value = document.getElementById('span'+x).innerText;
+            document.getElementById('nam'+x).remove();
+            document.getElementById('but'+x).remove();
+            
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        
+        <div id="input">
+            <input type="text" id = 'inputform'>
+            <br>
+            <button onclick="addToList()" id = 'but'>
+                Add To List
+            </button>
+        </div>
+        <div class="conta">
+            <div class="cont">
+
+            </div>
+            <div class="butoo">
+               
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
